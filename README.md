@@ -1,56 +1,93 @@
-# ⚡ TWRP Device Tree for OPPO A15 (CPH2185)
+====================================================
+        OPPO A15 (CPH2185) DEVICE PROJECT
+====================================================
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Device-OPPO%20A15-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Android-10%2F11-green?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Recovery-TWRP-orange?style=for-the-badge"/>
-</p>
+PROJECT TYPE:
+Device Tree / Kernel / Recovery (Experimental)
 
----
+----------------------------------------------------
+DEVICE INFO
+----------------------------------------------------
 
-## 📱 About the Project
+Device Name     : OPPO A15
+Codename        : CPH2185
+Chipset         : MediaTek Helio P35 (MT6765)
+Architecture    : arm64
+GPU             : PowerVR GE8320
 
-This is a **custom TWRP device tree** for OPPO A15 (CPH2185), built for experimental recovery builds using **prebuilt kernel support** and GitHub Actions automation.
+----------------------------------------------------
+PROJECT OVERVIEW
+----------------------------------------------------
 
-This project focuses on:
-- Clean and minimal device configuration
-- Fast CI-based builds
-- Kernel pre-integration
-- Easy modification for developers
+This is a custom device project for OPPO A15 (CPH2185).
 
----
+It includes:
+- Device Tree (TWRP / AOSP base)
+- Prebuilt Kernel (Image.gz-dtb)
+- Recovery configuration
+- Experimental build support
 
-## ⚙️ Device Info
+----------------------------------------------------
+STATUS
+----------------------------------------------------
 
-| Spec | Value |
-|------|------|
-| Device | OPPO A15 |
-| Codename | CPH2185 |
-| Chipset | MediaTek Helio P35 (MT6765) |
-| Architecture | arm64 |
-| Android Base | 10 / 11 |
+Device Tree     : WIP (Work in progress)
+Kernel          : Prebuilt (stock extracted)
+Recovery        : Testing phase
+Boot            : Not confirmed
+Encryption      : Not tested
 
----
+----------------------------------------------------
+KERNEL
+----------------------------------------------------
 
-## 🔧 Current Status
+Prebuilt kernel is used:
 
-- 🔋 Boot: Unknown / Testing
-- 📱 Touch: Unknown / Testing
-- 💾 Storage: Unknown / Testing
-- 🔐 Decryption: Not tested
-- 📦 Flashable: WIP
+Image.gz-dtb
 
----
+Extracted from stock firmware and manually prepared.
 
-## ⚡ Features
+----------------------------------------------------
+BUILD INSTRUCTIONS
+----------------------------------------------------
 
-- Prebuilt kernel integration (`Image.gz-dtb`)
-- GitHub Actions automated build
-- Minimal and clean tree structure
-- MTK-compatible layout
+1. Clone repository:
+   git clone https://github.com/safronovp348-rgb/device_oppo_cph2185.git
 
----
+2. Enter directory:
+   cd device_oppo_cph2185
 
-## 🧠 Kernel
+3. Build via GitHub Actions:
+   Actions → Run workflow
 
-This build uses a **prebuilt kernel extracted from stock firmware**:
+----------------------------------------------------
+OUTPUT
+----------------------------------------------------
+
+Recovery image location:
+
+out/target/product/cph2185/recovery.img
+
+----------------------------------------------------
+WARNING
+----------------------------------------------------
+
+This is an experimental project.
+
+- Flash at your own risk
+- No responsibility for bricks or data loss
+- For development/testing only
+
+----------------------------------------------------
+CREDITS
+----------------------------------------------------
+
+- TWRP Team
+- Android Image Kitchen (osm0sis)
+- MediaTek community
+- XDA Developers
+- Open-source Android developers
+
+====================================================
+END OF FILE
+====================================================
