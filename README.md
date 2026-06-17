@@ -1,10 +1,23 @@
-# OPPO A15 (CPH2185) Device Project
+
+<p align="center">
+  <img src="https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a15-1.jpg" width="220"/>
+  <img src="https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a15-2.jpg" width="220"/>
+</p>
+
+<h1 align="center">OPPO A15 (CPH2185)</h1>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Device-OPPO%20A15-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Chipset-Helio%20P35-green?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Architecture-ARM64-orange?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Status-Experimental-red?style=for-the-badge"/>
+</p>
 
 ---
 
-## 📱 Device Information
+## 🧾 DEVICE OVERVIEW
 
-Device Name: OPPO A15  
+Device: OPPO A15  
 Codename: CPH2185  
 Chipset: MediaTek Helio P35 (MT6765)  
 Architecture: arm64  
@@ -12,71 +25,85 @@ GPU: PowerVR GE8320
 
 ---
 
-## ⚙️ Project Overview
+## 🧠 CHIPSET INFO
 
-This repository contains a custom device project for OPPO A15 (CPH2185).
+<p align="center">
+  <img src="https://fdn.gsmarena.com/imgroot/news/20/03/mediatek-helio-p35/-1220x526/gsmarena_001.jpg" width="340"/>
+</p>
 
-It includes:
+MediaTek Helio P35 (12nm)
 
-- Device Tree (TWRP / AOSP base)
-- Prebuilt Kernel (Image.gz-dtb)
-- Recovery configuration
-- Experimental build support
+- 8x Cortex-A53 cores
+- PowerVR GE8320 GPU
+- Low-power budget chipset
 
 ---
 
-## 📊 Current Status
+## ⚙️ PROJECT DESCRIPTION
 
-Device Tree: WIP (Work in progress)  
-Kernel: Prebuilt (stock extracted)  
-Recovery: Testing phase  
+This is a custom Android device project for OPPO A15 (CPH2185).
+
+Includes:
+
+- Device Tree (TWRP / AOSP base)
+- Prebuilt Kernel (stock extracted)
+- Recovery configs
+- Experimental support
+
+---
+
+## 📊 CURRENT STATUS
+
+Device Tree: WIP  
+Kernel: Prebuilt (stock)  
+Recovery: Testing  
 Boot: Not confirmed  
 Encryption: Not tested  
 
 ---
 
-## 🧠 Processor
+## 🔧 KERNEL
 
-MediaTek Helio P35 (MT6765)
-
-- 12nm process
-- Octa-core CPU (Cortex-A53)
-- PowerVR GE8320 GPU
-
----
-
-## ⚙️ Kernel
-
-Prebuilt kernel is used:
+Prebuilt kernel used:
 
 Image.gz-dtb
 
-Extracted from stock firmware and prepared manually.
+Extracted from stock firmware and repacked manually.
 
 ---
 
-## 🚀 Build Instructions
+## 🚀 BUILD INSTRUCTIONS
 
-1. Clone repository:
+Clone repository:
 
 git clone https://github.com/safronovp348-rgb/device_oppo_cph2185.git  
 cd device_oppo_cph2185  
 
 ---
 
-2. Run GitHub Actions:
+Run build:
 
+Go to GitHub Actions:
 https://github.com/safronovp348-rgb/device_oppo_cph2185/actions
 
 ---
 
-## 📦 Output
+## 📦 OUTPUT
 
 out/target/product/cph2185/recovery.img
 
 ---
 
-## ⚠️ Warning
+## 🖼️ DEVICE GALLERY
+
+<p align="center">
+  <img src="https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a15-1.jpg" width="200"/>
+  <img src="https://fdn2.gsmarena.com/vv/pics/oppo/oppo-a15-2.jpg" width="200"/>
+</p>
+
+---
+
+## ⚠️ WARNING
 
 This project is experimental.
 
@@ -86,18 +113,18 @@ This project is experimental.
 
 ---
 
-## ❤️ Credits
+## ❤️ CREDITS
 
-TWRP Team — https://twrp.me  
-Android Image Kitchen — https://github.com/osm0sis/Android-Image-Kitchen  
-XDA Developers — https://forum.xda-developers.com  
+TWRP Team → https://twrp.me  
+Android Image Kitchen → https://github.com/osm0sis/Android-Image-Kitchen  
+XDA Developers → https://forum.xda-developers.com  
 MediaTek Community  
 Open-source Android developers  
 
 ---
 
-## 📌 Notes
+## 📌 NOTES
 
-- Experimental device port  
-- Expect bugs and missing hardware support  
-- Actively under development
+- Early development stage  
+- Expect bugs  
+- Hardware support incomplete  
