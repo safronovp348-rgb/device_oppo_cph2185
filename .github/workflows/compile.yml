@@ -21,13 +21,14 @@ jobs:
 
     - name: Установка утилиты Repo от Google
       run: |
-        mkdir ~/bin
+        mkdir -p ~/bin
         curl https://googleapis.com > ~/bin/repo
         chmod a+x ~/bin/repo
         sudo ln -sf ~/bin/repo /usr/bin/repo
 
     - name: Синхронизация минимальных исходников TWRP
       run: |
+        git config --global --add safe.directory '*'
         mkdir ~/twrp && cd ~/twrp
         git config --global user.name "safronovp348-rgb"
         git config --global user.email "safronovp348-rgb@github.com"
