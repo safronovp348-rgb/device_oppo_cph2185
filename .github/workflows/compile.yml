@@ -8,38 +8,45 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - name: Очистка и подготовка окружения
+    - name: Checkout device tree
       uses: actions/checkout@v4
 
-    - name: Установка необходимых пакетов Linux
+    - name: Установка зависимостей
       run: |
         sudo apt-get update
-        sudo apt-get install -y bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev python3 repo libelf-dev
+        sudo apt-get install -y \
+        bc bison build-essential ccache curl flex g++-multilib gcc-multilib \
+        git gnupg gperf imagemagick lib32readline-dev lib32z1-dev liblz4-tool \
+        libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils \
+        lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev \
+        python3 repo libelf-dev
 
-    - name: Синхронизация минимальных исходников TWRP
+    - name: Установка repo и синхронизация исходников TWRP
       run: |
-        git config --global --add safe.directory '*'
-        mkdir -p ~/twrp && cd ~/twrp
-        git config --global user.name "safronovp348-rgb"
-        git config --global user.email "safronovp348-rgb@github.com"
-        repo init --depth=1 -u https://github.com -b twrp-9.0
+        mkdir -p ~/twrp
+        cd ~/twrp
+
+        repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-9.0
         repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
 
-    - name: Клонирование твоего Device Tree в структуру сборщика
+    - name: Копирование device tree
       run: |
         mkdir -p ~/twrp/device/oppo/cph2185
-        cp -r * ~/twrp/device/oppo/cph2185/
+        cp -r $GITHUB_WORKSPACE/* ~/twrp/device/oppo/cph2185/
 
-    - name: Запуск компиляции чистого TWRP
+    - name: Сборка TWRP
       run: |
         cd ~/twrp
         export ALLOW_MISSING_DEPENDENCIES=true
+        export LC_ALL=C
+
         source build/envsetup.sh
-        lunch omni_cph2185-userdebug
+        lunch omni_cph2185-eng
+
         make recoveryimage -j$(nproc --all)
 
-    - name: Загрузка готового образа на Гитхаб
+    - name: Upload recovery image
       uses: actions/upload-artifact@v4
       with:
-        name: twrp_oppo_a15_compiled
-        path: /home/runner/twrp/out/target/product/cph2185/recovery.img
+        name: twrp-cph2185
+        path: ~/twrp/out/target/product/cph2185/recovery.img
