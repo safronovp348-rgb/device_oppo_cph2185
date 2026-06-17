@@ -1,0 +1,3 @@
+/dev/block/platform/bootdevice/by-name/boot       /boot       emmc    defaults
+/dev/block/platform/bootdevice/by-name/recovery   /recovery   emmc    defaults
+/dev/block/platform/bootdevice/by-name/cache      /cache      ext4    defaults
