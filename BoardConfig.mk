@@ -1,0 +1,35 @@
+DEVICE_PATH := device/oppo/cph2185
+
+# Архитектура процессора (MediaTek MT6765 / Helio P35)
+TARGET_ARCH := arm64
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_VARIANT := generic
+TARGET_CPU_ABI := arm64-v8a
+
+TARGET_2ND_ARCH := arm
+TARGET_2ND_ARCH_VARIANT := armv7-a-neon
+TARGET_2ND_CPU_VARIANT := generic
+TARGET_2ND_CPU_ABI := armeabi-v7a
+TARGET_2ND_CPU_ABI2 := armeabi
+
+# Ядро и адреса памяти (Строго из твоего дампа!)
+TARGET_NO_KERNEL := false
+BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=user
+BOARD_KERNEL_BASE := 0x40078000
+BOARD_PAGE_SIZE := 2048
+BOARD_KERNEL_OFFSET := 0x00008000
+BOARD_RAMDISK_OFFSET := 0x11a88000
+BOARD_TAGS_OFFSET := 0x07808000
+
+# Флаги компиляции TWRP
+RECOVERY_VARIANT := twrp
+TARGET_RECOVERY_DEVICE := cph2185
+TW_THEME := portrait_hdpi
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_MAX_BRIGHTNESS := 255
+TW_DEFAULT_BRIGHTNESS := 150
+
+# Отключаем проверки безопасности, чтобы прорвать защиту OPPO
+TW_EXCLUDE_DEFAULT_USB_INIT := true
+TW_INCLUDE_CRYPTO := false
+TW_INPUT_BLACKLIST := "hbtp_vm"
